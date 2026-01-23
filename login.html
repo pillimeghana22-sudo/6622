@@ -1,64 +1,81 @@
-login.html
-
-
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Page Title</title>
+    <title>Login Page</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <script src='main.js'></script>
     <style>
-        fieldset{
+        fieldset {
             left: 35%;
             position: absolute;
-            height: 50%;
+            height: auto; /* Changed to auto to fit new fields */
             width: 30%;
+            padding: 20px;
             background-color: burlywood;
             text-align: center;
         }
-        legend{
-            border: solid;
-            left: auto;
-            right: auto;
+        table {
+            margin: 0 auto;
         }
-        
+        td {
+            padding: 5px;
+        }
+        legend {
+            border: solid;
+            background-color: white;
+            padding: 0 10px;
+        }
     </style>
     <script>
-    function fv1(){
-        var un1=document.lf.un.value;
-        if(un1.length<3)
-            {
-                alert("3 l");
-                return false;
-            }
-            else{
-                return true;
-            }
+    function fv1() {
+        var un1 = document.lf.un.value;
+        var pass1 = document.lf.pass.value;
+        var cpass1 = document.lf.cpass.value;
+
+        // Name length validation
+        if (un1.length < 3) {
+            alert("Name must be at least 3 characters");
+            return false;
+        }
+        
+        // Password match validation
+        if (pass1 != cpass1) {
+            alert("Passwords do not match");
+            return false;
+        }
+        
+        return true;
     }
     </script>
 </head>
-<body><fieldset><legend>login</legend>
-<form action="week4.html" name="lf" onsubmit="return fv1()" >
-    <table>
-        <tr>
-            <td><label>name</label></td>
-            <td><input type="text" name="un" required></td>
-        </tr>
-        <tr>
-            <td><label>password</label></td>
-               <td> <input type="password" name="pass" required></td>
-            </tr>
-            <tr>
-                <td> <input type="submit" value="login"></td>
-                 <td><input type="reset" name="reset"></td>
-                 
-
-        </table>
-</form>
-</fieldset>
-    
+<body>
+    <fieldset>
+        <legend>Login</legend>
+        <form action="week4.html" name="lf" onsubmit="return fv1()">
+            <table>
+                <tr>
+                    <td><label>Name</label></td>
+                    <td><input type="text" name="un" required></td>
+                </tr>
+                <tr>
+                    <td><label>Email</label></td>
+                    <td><input type="email" name="email" required></td>
+                </tr>
+                <tr>
+                    <td><label>Password</label></td>
+                    <td><input type="password" name="pass" required></td>
+                </tr>
+                <tr>
+                    <td><label>Confirm Password</label></td>
+                    <td><input type="password" name="cpass" required></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Login"></td>
+                    <td><input type="reset" name="reset"></td>
+                </tr>
+            </table>
+        </form>
+    </fieldset>
 </body>
 </html>
